@@ -1,0 +1,13 @@
+{
+    "name": "StudyForge",
+    "description": "Tools to help students with productivity and focus.",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "matches": "<all_urls>",
+            "js": [
+                "app.js"
+            ]
+        }
+    ]
+}
