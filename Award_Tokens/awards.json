@@ -2,37 +2,37 @@
     {
         "name": "5 Assignments Done",
         "description": "Ten assignments in!",
-        "image": "./images/copper.jpeg",
-        "assigned": true
+        "image": "../Award_Tokens/images/copper.jpeg",
+        "assigned": false
     },  
     {
         "name": "10 Assignments Done",
         "description": "Ten assignments in!",
-        "image": "./images/bronzToken.jpeg",
+        "image": "../Award_Tokens/images/bronzToken.jpeg",
         "assigned": false
     },  
     {
         "name": "15 Assignments Done",
         "description": "20 assignments in!",
-        "image": "./images/study.jpeg",
+        "image": "../Award_Tokens/images/study.jpeg",
         "assigned": false
     },
     {
         "name": "20 Assignments Done",
         "description": "20 assignments in!",
-        "image": "./images/BronzTrophy.jpeg",
+        "image": "../Award_Tokens/images/BronzTrophy.jpeg",
         "assigned": false
     },
     {
         "name": "30 Completed",
         "description": "Ten assignments in!",
-        "image": "./images/silverTrophy.jpeg",
+        "image": "../Award_Tokens/images/silverTrophy.jpeg",
         "assigned": false
     },
     {
         "name": "40 Assignments Done",
         "description": "20 assignments in!",
-        "image": "./images/BigTrophy.jpeg",
+        "image": "../Award_Tokens/images/BigTrophy.jpeg",
         "assigned": false
     }
 ]

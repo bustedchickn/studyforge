@@ -1,19 +1,8 @@
-body{
-    margin-left: auto;
-
-    width: 400px;
-    height: 150px;
 
 
-}
 
-button{
-    border: none;
-    background: none;
 
-}
-
-.outline{
+.c_Outline{
     border: 1px solid black;
     background: linear-gradient(45deg, rgb(180, 82, 52), rgb(0, 0, 0));
     border-radius: 10px;
@@ -46,17 +35,14 @@ button{
     }
 }
 
-.title_holder{
+.c_title_holder{
     text-align: center;
     color: white;
 }
 
-.img_token{
+.c_img_token{
     width: 100px;
     height: 100px;
     border-radius: 50px;
 }
 
-/* .hide{
-    display: none;
-} */
