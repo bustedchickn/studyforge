@@ -8,7 +8,11 @@ body {
     border: red solid 2px;
 }
 
-
+a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
 
 .settingButton{
     position:absolute;
@@ -31,7 +35,6 @@ ul{
     display: block;
     top: 10px;
     left: 10px;
-    display: border;
 }
 li{
     margin: 10px;
