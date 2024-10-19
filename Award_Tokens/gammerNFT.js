@@ -20,7 +20,7 @@ function incrementCounter(){
     // Increment the count for asinment to be done.
     count += 1;
     //for every 5 asinments done then display a token.
-    if(count % 5 == 0){
+    if(count % 10 == 0){
         document.getElementById("awardSound").play();
         const pain = document.getElementById('c_Outline');
 
