@@ -60,7 +60,7 @@ function pickTask() {
         // Play sound each time a new item is highlighted
         taskSound.currentTime = 0; // Reset to the beginning
         taskSound.play(); // Play the sound
-        newnum = Math.floor(Math.random() * 5);
+        newnum = Math.floor(Math.random() * 2 + 3);
         // if (soundToggle == 1){
         //     newnummax = 6;
         
