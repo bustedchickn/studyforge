@@ -3,7 +3,8 @@ const site = window.location.hostname
 
 // testing alert
 
-
+chrome.storage.local.get(['selectedOptions'], function(result) {
+const savedValues = result.selectedOptions || [];})
 
 
 let blockedlist = ["facebook","instagram","tiktok","discord","x"]
@@ -16,15 +17,25 @@ blockedlist.forEach(element => {
 }
 });
 
+if(savedValues == []){
+    let muted = false;
+    let brokenHome = false;
+    let blurred = false;
+    let descriptionHidden = false;
+    let commentsHidden = false;
+    let suggestedHidden = false;
+    let shortsHidden = false;
+}else{
+    let muted = true;
+    let brokenHome = true;
+    let blurred = true;
+    let descriptionHidden = true;
+    let commentsHidden = true;
+    let suggestedHidden = true;
+    let shortsHidden = true;
+}
 
 
-let muted = true;
-let brokenHome = true;
-let blurred = true;
-let descriptionHidden = true;
-let commentsHidden = true;
-let suggestedHidden = true;
-let shortsHidden = true;
 
 window.onload = function () {
     // Hide the right-side suggested videos (next to the video you're watching)
