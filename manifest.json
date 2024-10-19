@@ -10,17 +10,20 @@
           "128": "website/logos/hero-128.png"
         }
     },
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
             "js": [
-                "app.js"
+                "app.js",
+                "reminders/sitenotes.js"
             ]
         }
     ],
     "permissions": [
         "tabs",
-        "cookies",
         "storage",
         "notifications",
         "alarms",
