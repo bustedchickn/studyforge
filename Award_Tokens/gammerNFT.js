@@ -1,26 +1,21 @@
 // this is for the amount of times the finished button has bin hit
-let count = -1;
+let count = 0;
 let item = 0;
 
 // const button = document.querySelector('.outline');
 
-const onPageLoad = () => {
-    const bigButton = document.getElementById('c_finish_assingment');
-    bigButton.addEventListener('click', incrementCounter);
-    document.removeEventListener('DOMContentLoaded', onPageLoad);
-}
 
 //This function will be called everytie the finished assinment button is hit
-document.addEventListener('DOMContentLoaded', onPageLoad);
+// document.getElementById('c_finish_assingment').addEventListener('click', incrementCounter);
 
 //This function will be called every time the button is hit
 
-function incrementCounter(){
+function incrementCounter() {
     console.log(count);
     // Increment the count for asinment to be done.
     count += 1;
     //for every 5 asinments done then display a token.
-    if(count % 10 == 0){
+    if(count % 5 == 0){
         document.getElementById("awardSound").play();
         const pain = document.getElementById('c_Outline');
 
