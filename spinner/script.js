@@ -105,8 +105,8 @@ function highlightTask(taskItem) {
 
     // Highlight the current item with a random color
     randomColor = getRandomColor();
-    taskListItems[currentIndex].style.backgroundColor = randomColor;
-    taskListItems[currentIndex].classList.add("highlight");
+    taskItem.style.backgroundColor = randomColor;
+    taskItem.classList.add("highlight");
 
     // Display the selected task in the result section
     const resultDiv = document.getElementById("result");

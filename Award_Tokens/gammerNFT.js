@@ -11,7 +11,7 @@ function incrementCounter(){
     //for every 5 asinments done then display a token.
     if(counter % 5 == 0){
         item++
-        fetch('./awards.json')
+        fetch('../Award_Tokens/awards.json')
         .then(response => response.json())
         .then(data => {
 
@@ -52,8 +52,8 @@ function callItem(item, data){
 
         const imgEl = document.createElement('img');
         imgEl.classList.add('img_token');
-        imgEl.src = token.image; // Set image source from JSON
-        imgEl.alt = token.name; // Set alt text as the award name
+        imgEl.src = data.image; // Set image source from JSON
+        imgEl.alt = data.name; // Set alt text as the award name
 
         imgHolderDiv.appendChild(imgEl);
 
@@ -63,7 +63,7 @@ function callItem(item, data){
 
         const titleEl = document.createElement('h2');
         titleEl.classList.add('titles');
-        titleEl.textContent = token.name; // Set the title from JSON
+        titleEl.textContent = data.name; // Set the title from JSON
 
         titleHolderDiv.appendChild(titleEl);
 
