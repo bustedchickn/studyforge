@@ -14,7 +14,8 @@
         {
             "matches": ["<all_urls>"],
             "js": [
-                "app.js"
+                "app.js",
+                "reminders/sitenotes.js"
             ]
         }
     ],
