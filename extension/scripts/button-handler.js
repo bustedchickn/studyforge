@@ -5,7 +5,7 @@
     document.getElementById("reminders").addEventListener('click', openReminders);
     document.getElementById("return").addEventListener('click', reset);
     document.getElementById("pomo-button").addEventListener('click', openPomodoro);
-    document.getElementById("music").addEventListener('click', openPomodoro);
+    document.getElementById("music").addEventListener('click', openMusic);
 })();
 
 function reset(event) {
@@ -30,5 +30,8 @@ function openPomodoro() {
 }
 
 function openMusic(){
+    //get the preference
+    
 
+    //if theres no preference, play the brown noise
 }
