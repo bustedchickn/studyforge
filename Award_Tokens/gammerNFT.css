@@ -1,0 +1,27 @@
+body{
+    width: 400px;
+    height: 150px;
+}
+.outline{
+    border: 1px solid black;
+    background: linear-gradient(45deg, rgb(180, 82, 52), rgb(0, 0, 0));
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    width: 300px;
+    height: 100px;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+
+}
+
+.title{
+    text-align: center;
+    color: white;
+}
+
+.img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
