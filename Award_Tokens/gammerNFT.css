@@ -10,24 +10,40 @@ body{
 button{
     border: none;
     background: none;
-    transition: transform 2s;
+
 }
-button:hover{
-    transform: translateX(1000px)
-}
+
 .outline{
     border: 1px solid black;
     background: linear-gradient(45deg, rgb(180, 82, 52), rgb(0, 0, 0));
     border-radius: 10px;
     padding: 10px;
-    margin: 5px;
     width: 300px;
     height: 100px;
     grid-template-columns: 1fr 2fr;
     display: grid;
 
 
-  transition: 0.3s
+    position: absolute;
+    top: 15%;
+    right: -220px;
+    transform: translateY(-50%); /* Center the button */
+    animation: slide-in-out 4s ease-in-out infinite; /* Start the animation */
+}
+
+@keyframes slide-in-out {
+    0% {
+        right: -420px; /* Off-screen */
+    }
+    20% {
+        right: 20px; /* Fully visible on-screen */
+    }
+    80% {
+        right: 20px; /* Still visible */
+    }
+    100% {
+        right: -420px; /* Off-screen again */
+    }
 }
 
 .title_holder{
