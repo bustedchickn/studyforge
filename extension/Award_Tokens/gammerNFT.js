@@ -5,9 +5,6 @@ let item = 0;
 // const button = document.querySelector('.outline');
 
 
-//This function will be called everytie the finished assinment button is hit
-// document.getElementById('c_finish_assingment').addEventListener('click', incrementCounter);
-
 //This function will be called every time the button is hit
 
 function incrementCounter() {
@@ -63,11 +60,5 @@ function callItem(item, data){
     }
 }
 
-// function removeItem(item) {
-//     const tokenElement = document.querySelector('.c_Outline');
-//     if (tokenElement) {
-//         tokenElement.remove();  // Remove the element from the DOM
-//         console.log('Token removed');
-//     }
-// }
+
 

@@ -365,3 +365,43 @@ function hexToRgb(hex) {
 
     return { r, g, b };
 }
+
+
+
+
+const addTaskButton = document.getElementById("addTaskButton");
+addTaskButton.addEventListener("click", addTask);
+
+
+
+const pickTaskButton = document.getElementById("c_pick_task");
+pickTaskButton.addEventListener("click", pickTask);
+
+
+const finish_assingment = document.getElementById("c_finish_assingment");
+finish_assingment.addEventListener("click", completeTask);
+
+
+
+const completeToggleButton = document.getElementById("completed-toggle");
+completeToggleButton.addEventListener("click", toggleCompletedTasks);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

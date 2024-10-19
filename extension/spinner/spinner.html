@@ -9,8 +9,10 @@
     <!-- <link rel="c_stylesheet" href="../Award_Tokens/gammerNFT.css"> -->
 
     <audio preload="auto" src="../sounds/reward.wav" id="awardSound"></audio>
+    <!-- <script src="script2.js" defer></script> -->
     <script src="../Award_Tokens/gammerNFT.js" defer></script>
     <script src="script.js" defer></script>
+    <!-- <script src="script2.js" defer></script> -->
 </head>
 <body>
     <div id="content">
@@ -23,15 +25,15 @@
 
         <!-- Task input -->
         <input type="text" id="taskInput" placeholder="Enter a task" />
-        <button onclick="addTask()">Add Task</button>
+        <button id="addTaskButton">Add Task</button>
         <!-- <button onclick="toggleSound()">Toggle Sound</button> -->
 
         <!-- Display list of tasks -->
         <ul id="taskList"></ul>
 
         <!-- Spin button -->
-        <button onclick="pickTask()">Pick a Task</button>
-        <button id="c_finish_assingment" onclick="completeTask()">Complete Task</button>
+        <button id="c_pick_task">Pick a Task</button>
+        <button id="c_finish_assingment">Complete Task</button>
 
         <!-- Result display -->
         <div id="result"></div>
@@ -42,7 +44,7 @@
             <ul id="completedTasksList"></ul>
         </div>
 
-        <button onclick="toggleCompletedTasks()" id="completed-toggle">Show Completed Tasks</button>
+        <button id="completed-toggle">Show Completed Tasks</button>
 
         <!-- Audio -->
         <audio id="taskSound1" src="click1.mp3" preload="auto"></audio>

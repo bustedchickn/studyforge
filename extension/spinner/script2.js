@@ -1,13 +1,17 @@
-let tasks = [];
+// let c_Tasks = [];
+// let completedTasks = []; // Initialize the completed tasks array
+
 let isPicking = false;
 
+const addTaskButton = document.getElementById("addTaskButton");
+addTaskButton.addEventListener("click", addTask);
 function addTask() {
     const taskInput = document.getElementById("taskInput");
     const taskList = document.getElementById("taskList");
 
     const task = taskInput.value.trim();
     if (task !== "") {
-        tasks.push(task);
+        c_Tasks.push(task);
 
         // Update the task list display
         const li = document.createElement("li");
@@ -20,9 +24,11 @@ function addTask() {
     }
 }
 
+const pickTaskButton = document.getElementById("c_pick_task");
+pickTaskButton.addEventListener("click", pickTask);
 
 function pickTask() {
-    if (isPicking || tasks.length === 0) {
+    if (isPicking || c_Tasks.length == 0) {
         alert("Please add some tasks first, or wait until the current task is picked!");
         return;
     }
@@ -50,7 +56,7 @@ function pickTask() {
         taskSound.play(); // Play the sound
 
         // Move to the next item, looping back to the start if necessary
-        currentIndex = (currentIndex + 1) % tasks.length;
+        currentIndex = (currentIndex + 1) % c_Tasks.length;
 
         // Increase delay gradually to slow down the highlight cycling
         delay += 10;
@@ -61,7 +67,7 @@ function pickTask() {
             cycleCount++; // Increment the cycle count
         } else {
             // Stop cycling and pick the current task
-            const selectedTask = taskListItems[(currentIndex - 1 + tasks.length) % tasks.length].textContent;
+            const selectedTask = taskListItems[(currentIndex - 1 + c_Tasks.length) % c_Tasks.length].textContent;
 
             const resultDiv = document.getElementById("result");
             resultDiv.textContent = `Your task: ${selectedTask}`;
@@ -77,7 +83,7 @@ function pickTask() {
         taskListItems[currentIndex].classList.add("highlight");
 
         // Move to the next item, looping back to the start if necessary
-        currentIndex = Math.floor(Math.random() * (tasks.length - 1));
+        currentIndex = Math.floor(Math.random() * (c_Tasks.length - 1));
 
         // Play sound each time a new item is highlighted
         taskSound.currentTime = 0; // Reset to the beginning
@@ -92,7 +98,7 @@ function pickTask() {
             cycleCount++; // Increment the cycle count
         } else {
             // Stop cycling and pick the current task
-            const selectedTask = taskListItems[(currentIndex - 1 + tasks.length) % tasks.length].textContent;
+            const selectedTask = taskListItems[(currentIndex - 1 + c_Tasks.length) % c_Tasks.length].textContent;
 
             const resultDiv = document.getElementById("result");
             resultDiv.textContent = `Your task: ${selectedTask}`;
@@ -116,6 +122,8 @@ function highlightTask(taskItem) {
     resultDiv.textContent = `Your task: ${taskItem.textContent}`;
 }
 
+const finish_assingment = document.getElementById("c_finish_assingment");
+finish_assingment.addEventListener("click", completeTask);
 
 function completeTask() {
     const resultDiv = document.getElementById("result");
@@ -127,10 +135,10 @@ function completeTask() {
     }
 
     // Find the index of the selected task in the task list
-    const taskIndex = tasks.indexOf(selectedTaskText);
+    const taskIndex = c_Tasks.indexOf(selectedTaskText);
     if (taskIndex > -1) {
-        // Remove the task from the tasks array
-        tasks.splice(taskIndex, 1);
+        // Remove the task from the Tasks array
+        c_Tasks.splice(taskIndex, 1);
 
         // Add the task to the completed tasks array
         completedTasks.push(selectedTaskText);
@@ -150,7 +158,7 @@ function completeTask() {
 function updateTaskList() {
     const taskList = document.getElementById("taskList");
     taskList.innerHTML = ""; // Clear current task list
-    tasks.forEach(task => {
+    c_Tasks.forEach(task => {
         const li = document.createElement("li");
         li.textContent = task;
         li.onclick = () => highlightTask(li); // Re-add click event for new list items
@@ -168,6 +176,8 @@ function updateCompletedTasksList() {
     });
 }
 
+const completeToggleButton = document.getElementById("completed-toggle");
+completeToggleButton.addEventListener("click", toggleCompletedTasks);
 
 function toggleCompletedTasks() {
     const completedTasksSection = document.getElementById("completedTasksSection");

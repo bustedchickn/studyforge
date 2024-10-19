@@ -16,6 +16,7 @@
     right: -500px;
     transform: translateY(20%); /* Center the button */
     font-size: 10px;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes slide-in-out {
