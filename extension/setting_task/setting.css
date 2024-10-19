@@ -1,3 +1,8 @@
+body{
+    width: 300px;
+    height: 475px;
+}
+
 
 .settingButton{
     position:absolute;

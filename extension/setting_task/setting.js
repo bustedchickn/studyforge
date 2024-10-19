@@ -1,5 +1,5 @@
 // Create the main button
-const settingButton = document.getElementById('button');
+const settingButton = document.getElementById('settings');
 settingButton.innerHTML = '. . .';
 document.body.appendChild(settingButton);
 
