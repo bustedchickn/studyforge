@@ -1,7 +1,5 @@
 
 
-
-
 .c_Outline{
     border: 1px solid black;
     background: linear-gradient(45deg, rgb(180, 82, 52), rgb(0, 0, 0));
@@ -15,9 +13,9 @@
 
     position: absolute;
     top: 15%;
-    right: -220px;
-    transform: translateY(-50%); /* Center the button */
-    animation: slide-in-out 4s ease-in-out infinite; /* Start the animation */
+    right: -500px;
+    transform: translateY(20%); /* Center the button */
+    font-size: 10px;
 }
 
 @keyframes slide-in-out {
@@ -44,5 +42,8 @@
     width: 100px;
     height: 100px;
     border-radius: 50px;
+}
+.c_hide{
+    display: none;
 }
 
