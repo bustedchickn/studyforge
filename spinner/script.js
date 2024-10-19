@@ -1,6 +1,7 @@
 let tasks = [];
 let completedTasks = []; // Array to hold completed tasks
 let isPicking = false;
+let soundToggle = 1;
 
 function addTask() {
     const taskInput = document.getElementById("taskInput");
@@ -36,7 +37,17 @@ function pickTask() {
     let cycleCount = 0; // Track the number of cycles completed
 
     // Get the audio element
-    let taskSound = document.getElementById("taskSound1");
+    if (soundToggle == 1){
+        soundType = "taskSound";
+        delay = 100;
+    } else if(soundToggle == 2) {
+        soundType = "piano";
+        delay = 400;
+    } else {
+        soundType = "scale";
+        delay = 100;
+    }
+    let taskSound = document.getElementById(soundType+"1");
     let newnum = 1;
 
     function highlightNextItem() {
@@ -50,10 +61,16 @@ function pickTask() {
         taskSound.currentTime = 0; // Reset to the beginning
         taskSound.play(); // Play the sound
         newnum = newnum + 1;
-        if (newnum > 6){
+        if (soundToggle == 1){
+            newnummax = 6;
+        
+        }else{
+            newnummax = 7;
+        }
+        if (newnum > newnummax){
             newnum = 1;
         }
-        taskSound = document.getElementById("taskSound" + newnum);
+        taskSound = document.getElementById(soundType + newnum);
         // Move to the next item, looping back to the start if necessary
         currentIndex = (currentIndex + 1) % tasks.length;
 
@@ -149,3 +166,13 @@ function toggleCompletedTasks() {
         completedTasksSection.style.display = "none";
     }
 }
+
+
+
+// function toggleSound(){
+//     if (soundToggle >= 3){
+//         soundToggle = 1;
+//     } else{
+//         soundToggle++;
+//     }
+// }
