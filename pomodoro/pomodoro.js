@@ -1,21 +1,14 @@
 // Globals
 const timer = document.querySelector(".timer");
 let maxTime = 900;
-let timeLeft = 0;
+let timeLeft = 900;
 let timerInterval;
 const timeDisplay = document.querySelector('.time-display');
 
-(function initListeners() {
-    document.getElementById('timer-control').addEventListener('click', startTimer);
-})();
-
+const startTimer = (event) => resumeTimer(event, startTimer);
+document.getElementById('timer-control').addEventListener('click', startTimer);
 
 // --------------- Timer Control ---------------
-
-function startTimer(event) {
-    timeLeft = 900; // Seconds (15 min)    
-    resumeTimer(event, startTimer)
-}
 
 function pauseTimer(event) {
     clearInterval(timerInterval);
@@ -25,7 +18,7 @@ function pauseTimer(event) {
 }
 
 function resumeTimer(event, startFunction = resumeTimer) {
-    timerInterval = setInterval(updateTimer, 100);
+    timerInterval = setInterval(updateTimer, 1);
     event.target.innerText = "Pause";
     event.target.removeEventListener('click', startFunction);
     event.target.addEventListener('click', pauseTimer);
@@ -34,6 +27,7 @@ function resumeTimer(event, startFunction = resumeTimer) {
 function updateTimer() {
     if (timeLeft === 0) {
         clearInterval(timerInterval);
+        resetTimer(maxTime === 900 ? 300 : 900)
         return;
     }
     timeLeft -= 1;
@@ -41,5 +35,22 @@ function updateTimer() {
     const seconds = timeLeft % 60;
     const split = 360 - (timeLeft / maxTime * 360);
     timeDisplay.innerText = `${Math.floor(timeLeft / 60)}:${seconds.toString().padStart(2, '0')}`;
-    timer.style.background = `conic-gradient(white 0deg, white ${split}deg, blue, ${split}deg, blue 360deg)`
+    timer.style.background = `conic-gradient(white 0deg, white ${split}deg, blue, ${split}deg, blue 360deg)`;
+}
+
+function resetTimer(newMaxTime) {
+    const button = document.getElementById("timer-control");
+    
+    maxTime = newMaxTime;
+    timeLeft = newMaxTime;
+
+    button.innerText = "start";
+    button.removeEventListener('click', resumeTimer);
+    button.addEventListener('click', startTimer);
+
+    timer.style.background = "conic-gradient(blue, blue)";
+    timeDisplay.innerText = maxTime / 60 + ":00";
+    const sound = document.getElementById("alert-sound");
+    sound.play();
+    setTimeout(() => sound.play(), 1750);
 }
