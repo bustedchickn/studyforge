@@ -8,7 +8,11 @@ body {
     border: red solid 2px;
 }
 
-
+a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
 
 .settingButton{
     position:absolute;
