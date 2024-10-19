@@ -1,5 +1,5 @@
 // this is for the amount of times the finished button has bin hit
-let count = 0;
+let count = -1;
 let item = 0;
 
 // const button = document.querySelector('.outline');

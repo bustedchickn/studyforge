@@ -1,37 +1,37 @@
 [
     {
-        "name": "5 Assignments Done",
-        "description": "Ten assignments in!",
+        "name": "Getting Started",
+        "description": "Started your homework",
         "image": "../Award_Tokens/images/copper.jpeg",
         "assigned": false
     },  
     {
-        "name": "10 Assignments Done",
-        "description": "Ten assignments in!",
+        "name": "Keep it Going",
+        "description": "you kept doing homework",
         "image": "../Award_Tokens/images/bronzToken.jpeg",
         "assigned": false
     },  
     {
-        "name": "15 Assignments Done",
-        "description": "20 assignments in!",
+        "name": "Pumped UP",
+        "description": "you are staying strong",
         "image": "../Award_Tokens/images/study.jpeg",
         "assigned": false
     },
     {
-        "name": "20 Assignments Done",
-        "description": "20 assignments in!",
+        "name": "academically Inclined",
+        "description": "you have finished more then a few assinments",
         "image": "../Award_Tokens/images/BronzTrophy.jpeg",
         "assigned": false
     },
     {
-        "name": "30 Completed",
-        "description": "Ten assignments in!",
+        "name": "Teachers Pet",
+        "description": "Completed a fair aount of assinments",
         "image": "../Award_Tokens/images/silverTrophy.jpeg",
         "assigned": false
     },
     {
-        "name": "40 Assignments Done",
-        "description": "20 assignments in!",
+        "name": "Dr. Einstein",
+        "description": "wholy cow you did a lot!",
         "image": "../Award_Tokens/images/BigTrophy.jpeg",
         "assigned": false
     }
