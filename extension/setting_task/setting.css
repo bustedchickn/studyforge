@@ -1,13 +1,20 @@
-body{
+h1 {
+    text-align: center;
+}
+
+body {
     width: 300px;
     height: 475px;
+    border: red solid 2px;
 }
+
 
 
 .settingButton{
     position:absolute;
     top: 10px;
     right: 50px;
+    
 }
 
 .j_hide{
@@ -18,14 +25,12 @@ ul{
     list-style-type: none;  
 }
 
+
 .generalSetting{
     padding-top: 10px;
-    position:absolute;
+    display: block;
     top: 10px;
-    right: 10px;
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
+    left: 10px;
     display: border;
 }
 li{
