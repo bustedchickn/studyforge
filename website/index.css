@@ -4,27 +4,57 @@ body{
     background-color: #121212;
     color: #ffff;
 }
-.logo{
-    text-align: center;
-    display: block;
-    align-items: center;
-    justify-content: center;
-}
+
+/* NAV Bar */
 nav{
     background-color: #420011;
     padding: 10px;
     text-align: center;
     font-size: 1.2em;
     
+    
 }
 nav a {
-    padding:0 5em;
+    color: #ffff;
+    padding:0 2em;
+    text-decoration: none;
+    
 }
+header img{
+    width: 20%;
+    height: auto;
+}
+
+#youtube{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the button horizontally */
+    align-items: center;
+}
+#youtube h2{
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+.download-btn{
+    display: block;
+    padding: 15px 20px;
+    background-color: sandybrown; /* Button color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 20px; /* Text size */
+    margin-top: 20px;
+}
+.download-btn:hover {
+    background-color: burlywood; /* Hover effect */
+  }
 
 section{
     border-radius: 50px;
     background-color: #420011;
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
     padding: 10px;
     height: 500px;
