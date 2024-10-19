@@ -1,4 +1,5 @@
 let isPlaying = false;
+document.getElementById('brown noise').pause();
 
 (function initListeners() {
     document.getElementById("settings").addEventListener('click', openSettings);
