@@ -31,7 +31,7 @@ function openPomodoro() {
 
 function openMusic(){
     //get the preference
-    
+
 
     //if theres no preference, play the brown noise
 }
