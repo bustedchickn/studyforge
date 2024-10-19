@@ -5,7 +5,7 @@
     document.getElementById("reminders").addEventListener('click', openReminders);
     document.getElementById("return").addEventListener('click', reset);
     document.getElementById("pomo-button").addEventListener('click', openPomodoro);
-
+    document.getElementById("music").addEventListener('click', openPomodoro);
 })();
 
 function reset(event) {
@@ -27,4 +27,8 @@ function openReminders() {
 
 function openPomodoro() {
     window.open('../pomodoro/pomodoro.html', 'Pomodoro Timer', 'width=200,height=250');
+}
+
+function openMusic(){
+
 }
