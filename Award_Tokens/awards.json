@@ -1,0 +1,38 @@
+[
+    {
+        "name": "5 Assignments Done",
+        "description": "Ten assignments in!",
+        "image": "./images/copper.jpeg",
+        "assigned": true
+    },  
+    {
+        "name": "10 Assignments Done",
+        "description": "Ten assignments in!",
+        "image": "./images/bronzToken.jpeg",
+        "assigned": false
+    },  
+    {
+        "name": "15 Assignments Done",
+        "description": "20 assignments in!",
+        "image": "./images/study.jpeg",
+        "assigned": false
+    },
+    {
+        "name": "20 Assignments Done",
+        "description": "20 assignments in!",
+        "image": "./images/BronzTrophy.jpeg",
+        "assigned": false
+    },
+    {
+        "name": "30 Completed",
+        "description": "Ten assignments in!",
+        "image": "./images/silverTrophy.jpeg",
+        "assigned": false
+    },
+    {
+        "name": "40 Assignments Done",
+        "description": "20 assignments in!",
+        "image": "./images/BigTrophy.jpeg",
+        "assigned": false
+    }
+]
