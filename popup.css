@@ -1,0 +1,17 @@
+div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+a {
+    border: solid 1px black;
+    padding: 5px;
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
