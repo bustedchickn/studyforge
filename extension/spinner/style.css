@@ -16,6 +16,7 @@ body {
 input {
     padding: 10px;
     font-size: 16px;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 button {
@@ -24,7 +25,10 @@ button {
     margin-left: 10px;
     cursor: pointer;
     background-color: rgb(142, 180, 214);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
 }
+
+
 
 #taskList {
     list-style-type: none;
@@ -40,11 +44,15 @@ button {
     margin-bottom: 10px;
     border-radius: 4px;
     transition: background-color 0.3s;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
 
 #taskList li.highlight {
     background-color: #3498db;
     color: white;
+    transform: scaleX(1.1);
+    
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 3);
 }
 
 #completedTasksList {
@@ -61,6 +69,7 @@ button {
     margin-bottom: 10px;
     border-radius: 4px;
     transition: background-color 0.3s;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
 #completedTasksSection{
     display: none;

@@ -13,7 +13,8 @@ div {
     gap: 20px;
 }
 
-div > * {
+div > a, div > button {
+    display: block;
     width: 100px;
     margin: 0 auto;
     flex: 1 1 calc(45% - 20px);
@@ -38,8 +39,18 @@ img {
 }
 
 
+#return {
+    border: none;
+    background-color: unset;
+}
+
+#return img {
+    height: 50px;
+}
 
 /* Site Notes */
 
 textarea { width: 100%; height: 80px; }
-button { margin-top: 10px; }
+#page-notes button { 
+    margin-top: 10px; 
+}
