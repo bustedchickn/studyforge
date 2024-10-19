@@ -2,11 +2,31 @@
 const timer = document.querySelector(".timer");
 let maxTime = 900;
 let timeLeft = 900;
+
 let timerInterval;
 const timeDisplay = document.querySelector('.time-display');
 
 const startTimer = (event) => resumeTimer(event, startTimer);
 document.getElementById('timer-control').addEventListener('click', startTimer);
+
+(function initTimer() {
+    timer.style.animation = 'reset 1s linear forwards';
+    timer.addEventListener('animationend', () => {
+        timer.style.animation = '';
+        timer.style.background = '';
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const newMaxTime = urlParams.get('time');
+    if (newMaxTime) {
+        maxTime = Number(newMaxTime);
+        timeLeft = Number(newMaxTime);
+        timeDisplay.innerText = maxTime / 60 + ":00";
+    } else {
+        timer.style.animation = 'reset 1s linear forwards';
+    }
+})();
+
 
 // --------------- Timer Control ---------------
 
@@ -18,7 +38,7 @@ function pauseTimer(event) {
 }
 
 function resumeTimer(event, startFunction = resumeTimer) {
-    timerInterval = setInterval(updateTimer, 1);
+    timerInterval = setInterval(updateTimer, 1000);
     event.target.innerText = "Pause";
     event.target.removeEventListener('click', startFunction);
     event.target.addEventListener('click', pauseTimer);
@@ -45,12 +65,24 @@ function resetTimer(newMaxTime) {
     timeLeft = newMaxTime;
 
     button.innerText = "start";
-    button.removeEventListener('click', resumeTimer);
+    button.removeEventListener('click', pauseTimer);
     button.addEventListener('click', startTimer);
 
-    timer.style.background = "conic-gradient(blue, blue)";
+    alarm(newMaxTime);
+    if (!document.hasFocus()) {
+        refocusPage(newMaxTime);
+        return;
+    }
+}
+
+function refocusPage(newMaxTime) {
+    const newWindow = window.open(`pomodoro.html?time=${newMaxTime}`, `pomodoro-${Date.now()}`, 'width=200,height=200');
+    if (newWindow) setTimeout(() => window.close(), 1000);
+}
+
+function alarm(maxTime) {
     timeDisplay.innerText = maxTime / 60 + ":00";
     const sound = document.getElementById("alert-sound");
     sound.play();
-    setTimeout(() => sound.play(), 1750);
+    timer.style.animation = 'reset 1s linear forwards';
 }
