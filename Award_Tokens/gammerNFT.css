@@ -1,8 +1,7 @@
 body{
     width: 400px;
     height: 150px;
-    grid-template-columns: 1fr 1fr 1fr;
-    display: grid;
+
 
 }
 .outline{
