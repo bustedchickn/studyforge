@@ -24,8 +24,8 @@ function addTask() {
         li.onclick = () => highlightTask(li); // Add click event to highlight task
         taskList.appendChild(li);
 
-        // // Save list to local storage as json
-        // saveListToLocalStorage(taskList);
+        // Save list to local storage as json
+        saveList1ToLocalStorage();
 
         // Clear the input
         taskInput.value = "";
@@ -172,7 +172,7 @@ function updateTaskList() {
     });
 
     // Save list to local storage as json
-    saveList1ToChromeStorage();
+    saveList1ToLocalStorage();
 }
 
 function updateCompletedTasksList() {
@@ -205,8 +205,40 @@ function getRandomColor() {
 }
 
 
-// Save List 1 to chrome.storage.local
-function saveList1ToChromeStorage() {
+// // Save List 1 to chrome.storage.local
+// function saveList1ToChromeStorage() {
+//     var listItems = document.querySelectorAll('#taskList li');
+//     var itemsArray = [];
+
+//     // Loop through list items and save their text content
+//     listItems.forEach(function(li) {
+//         itemsArray.push(li.textContent);
+//     });
+
+//     // Save the array to chrome.storage.local
+//     chrome.storage.local.set({ 'myList1': itemsArray }, function() {
+//         console.log('List 1 saved to chrome.storage');
+//     });
+// }
+
+// // Load List 1 from chrome.storage.local when the page is loaded
+// function loadList1FromChromeStorage() {
+//     chrome.storage.local.get('myList1', function(result) {
+//         var storedList = result.myList1;
+
+//         if (storedList) {
+//             // Loop through the stored array and recreate the list items
+//             storedList.forEach(function(item) {
+//                 var li = document.createElement('li');
+//                 li.textContent = item;
+//                 document.getElementById('list1').appendChild(li);
+//             });
+//         }
+//     });
+// }
+
+// Save List 1 to localStorage
+function saveList1ToLocalStorage() {
     var listItems = document.querySelectorAll('#taskList li');
     var itemsArray = [];
 
@@ -215,33 +247,38 @@ function saveList1ToChromeStorage() {
         itemsArray.push(li.textContent);
     });
 
-    // Save the array to chrome.storage.local
-    chrome.storage.local.set({ 'myList1': itemsArray }, function() {
-        console.log('List 1 saved to chrome.storage');
-    });
+    // Save the array to localStorage as a JSON string
+    localStorage.setItem('myList1', JSON.stringify(itemsArray));
+    console.log(localStorage.getItem('myList1'));
 }
 
-// Load List 1 from chrome.storage.local when the page is loaded
-function loadList1FromChromeStorage() {
-    chrome.storage.local.get('myList1', function(result) {
-        var storedList = result.myList1;
+// Load List 1 from localStorage when the page is loaded
+function loadList1FromLocalStorage() {
+    var storedList = localStorage.getItem('myList1'); // Get the list from localStorage
 
-        if (storedList) {
-            // Loop through the stored array and recreate the list items
-            storedList.forEach(function(item) {
-                var li = document.createElement('li');
-                li.textContent = item;
-                document.getElementById('list1').appendChild(li);
-            });
-        }
-    });
+    if (storedList) {
+        var itemsArray = JSON.parse(storedList); // Parse the JSON string back into an array
+
+        // Loop through the array and recreate the list items
+        itemsArray.forEach(function(item) {
+            var li = document.createElement('li');
+            li.textContent = item;
+            document.getElementById('list1').appendChild(li);
+        });
+    }
 }
 
 
 // Load List 1 from chrome.storage when the page is loaded
-window.onload = loadList1FromChromeStorage;
+window.onload = loadList1FromLocalStorage;
 
 
+window.addEventListener('unload', function () {
+    // Run a function when the page is being unloaded
+    console.log("Page is unloading, user has left.");
+    // Here you can do something like saving data, sending analytics, etc.
+    saveList1ToLocalStorage();
+});
 
 // function toggleSound(){
 //     if (soundToggle >= 3){
