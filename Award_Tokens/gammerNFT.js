@@ -1,9 +1,14 @@
+// this is for the amount of times the finished button has bin hit
 let counter = 0;
 let item = 0;
-const button = document.querySelector('.outline');
-function incrementCounter(){
-    counter++;
 
+const button = document.querySelector('.outline');
+
+//This function will be called everytie the finished assinment button is hit
+function incrementCounter(){
+    // Increment the counter for asinment to be done.
+    counter++;
+    //for every 5 asinments done then display a token.
     if(counter % 5 == 0){
         item++
         fetch('./awards.json')
@@ -11,24 +16,31 @@ function incrementCounter(){
         .then(data => {
 
             const maxLength = data.lenght
+            //If the max item has been reached then do nothing
             if(item > maxLength){
                 return ;
             }
+            // if the last item has not been displayed show the next one in line.
             else{
+                // set the next token item to be assigned
                 data[item].assigned = true
+                //display the item
                 callItem(item, data);
-
+                // wait 6 seconds then remove the item
                 setTimeout(() => {
                     removeItem(item);
-                }, 3000);
+                }, 6000);
             
             }
         })
 }
 }
-
+/*************************************************************************
+ * THis function is meant to take the data from the json and display it
+ *************************************************************************/
 function callItem(item, data){
     const listEL = document.getElementById('outline');
+    //Check if the token can be displayed only displayed assigned tokens
     if(data[item].assigned == true){ 
         // Create the container div for the outline
         const outlineDiv = document.createElement('div');
@@ -64,6 +76,9 @@ function callItem(item, data){
     }
 }
 
+/*************************************************
+* This function removes it from being displayed
+**************************************************/
 function removeItem(item){
     const listEL = document.getElementById('outline');
     listEL.removeChild(listEL.children[item]);
