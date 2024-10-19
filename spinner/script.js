@@ -114,8 +114,7 @@ function highlightTask(taskItem) {
 }
 
 function completeTask() {
-    // Update counter
-    incrementCounter();
+    
 
 
     const resultDiv = document.getElementById("result");
@@ -125,7 +124,9 @@ function completeTask() {
         alert("Please select a task first!");
         return;
     }
-
+    // Update counter
+    incrementCounter();
+    
     // Find the index of the selected task in the task list
     const taskIndex = tasks.indexOf(selectedTaskText);
     if (taskIndex > -1) {
