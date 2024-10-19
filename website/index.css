@@ -91,9 +91,11 @@ section img{
 }
 
 p{
-    text-align: justify;
+    text-align: left;
+    font-size: 23px;
     width: 400px;
-    padding: 20px;
+   
+
 }
 #download img{
     width: 30%;
@@ -109,5 +111,9 @@ p{
     border-radius: 0px;
 }
 h2{
-    text-align: center;
+    text-align: left;
+    font-size: 35px;
+}
+#feature4 img{
+    border-radius: 0px;
 }
