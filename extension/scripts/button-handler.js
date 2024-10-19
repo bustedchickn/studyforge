@@ -1,12 +1,24 @@
-
+let isPlaying = false;
 
 (function initListeners() {
     document.getElementById("settings").addEventListener('click', openSettings);
     document.getElementById("reminders").addEventListener('click', openReminders);
     document.getElementById("return").addEventListener('click', reset);
     document.getElementById("pomo-button").addEventListener('click', openPomodoro);
-    document.getElementById("music").addEventListener('click', openMusic);
+    document.getElementById('sound-player').addEventListener('click', startSound);
+
 })();
+
+function startSound() {
+    const sound = document.getElementById('brown noise');
+    if (isPlaying) {
+        sound.pause();
+    } else {
+        sound.currentTime = 0;
+        sound.play();
+    }
+    isPlaying = !isPlaying;
+}   
 
 function reset(event) {
     event.target.hidden = true;
