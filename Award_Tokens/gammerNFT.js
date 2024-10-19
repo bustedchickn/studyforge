@@ -1,22 +1,6 @@
-// import awardsData from './awards.json' assert { type: 'json' };
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const awards = awardsData.awards;
-
-//     // Get references to elements for displaying the award
-//     const titleElement = document.querySelector('.titles'); // Class name for title
-//     const imgElement = document.getElementById('img_token'); // ID for image
-
-//     // Display the first unassigned award
-//     for (let award of awards) {
-//         if (!award.assigned) {
-//             titleElement.textContent = award.name;
-//             imgElement.src = award.image;
-//             imgElement.alt = award.description;
-//             break;  // Stop after finding the first unassigned award
-//         }
-//     }
-// });
+let counter = 0;
+const targetNumber = 5;
+const button = document.querySelector('.outline');
 
 const listEL = document.getElementById('outline');
 fetch('./awards.json')
