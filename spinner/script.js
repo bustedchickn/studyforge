@@ -3,6 +3,13 @@ let completedTasks = []; // Array to hold completed tasks
 let isPicking = false;
 let soundToggle = 1;
 
+let taskInput = document.getElementById("taskInput");
+taskInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {  // Check if the "Enter" key is pressed
+        addTask();  // Call the same function as the button click
+    }});
+
+
 function addTask() {
     const taskInput = document.getElementById("taskInput");
     const taskList = document.getElementById("taskList");
@@ -16,6 +23,9 @@ function addTask() {
         li.textContent = task;
         li.onclick = () => highlightTask(li); // Add click event to highlight task
         taskList.appendChild(li);
+
+        // // Save list to local storage as json
+        // saveListToLocalStorage(taskList);
 
         // Clear the input
         taskInput.value = "";
@@ -100,6 +110,8 @@ function pickTask() {
 }
 
 function highlightTask(taskItem) {
+    if (isPicking) isPicking = false;
+
     // Remove highlight from all items
     const taskListItems = document.querySelectorAll("#taskList li");
     taskListItems.forEach(item => item.classList.remove("highlight"));
@@ -158,6 +170,9 @@ function updateTaskList() {
         li.onclick = () => highlightTask(li); // Re-add click event for new list items
         taskList.appendChild(li);
     });
+
+    // // Save list to local storage as json
+    // saveListToLocalStorage();
 }
 
 function updateCompletedTasksList() {
@@ -188,6 +203,42 @@ function getRandomColor() {
     }
     return color;
 }
+
+
+// // Function to save the current list to localStorage
+// function saveListToLocalStorage(list) {
+//     var listItems = document.querySelectorAll('#list li');
+//     var itemsArray = [];
+
+//     // Loop through list items and save their text content
+//     listItems.forEach(function(li) {
+//         itemsArray.push(li.textContent);
+//     });
+
+//     // Save the array as a JSON string in localStorage
+//     localStorage.setItem('myList', JSON.stringify(itemsArray));
+// }
+
+// // Function to load the list from localStorage when the page is loaded
+// function loadListFromLocalStorage() {
+//     var storedList = localStorage.getItem('myList'); // Get the list from localStorage
+
+//     if (storedList) {
+//         var itemsArray = JSON.parse(storedList); // Parse the JSON string back into an array
+
+//         // Loop through the array and recreate the list items
+//         itemsArray.forEach(function(item) {
+//             var li = document.createElement('li');
+//             li.textContent = item;
+//             document.getElementById('list').appendChild(li);
+//         });
+//     }
+// }
+
+
+
+// window.onload = loadListFromLocalStorage;
+
 
 
 // function toggleSound(){
