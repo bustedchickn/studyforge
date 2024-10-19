@@ -53,8 +53,12 @@ function pickTask() {
     function highlightNextItem() {
         // Remove highlight from all items
         taskListItems.forEach(item => item.classList.remove("highlight"));
-
-        // Highlight the current item
+        taskListItems.forEach(item => item.style.backgroundColor = "#FFFFFF");
+        
+        
+        // Highlight the current item with a random color
+        randomColor = getRandomColor();
+        taskListItems[currentIndex].style.backgroundColor = randomColor;
         taskListItems[currentIndex].classList.add("highlight");
 
         // Play sound each time a new item is highlighted
@@ -99,8 +103,10 @@ function highlightTask(taskItem) {
     const taskListItems = document.querySelectorAll("#taskList li");
     taskListItems.forEach(item => item.classList.remove("highlight"));
 
-    // Highlight the clicked task
-    taskItem.classList.add("highlight");
+    // Highlight the current item with a random color
+    randomColor = getRandomColor();
+    taskListItems[currentIndex].style.backgroundColor = randomColor;
+    taskListItems[currentIndex].classList.add("highlight");
 
     // Display the selected task in the result section
     const resultDiv = document.getElementById("result");
@@ -108,6 +114,10 @@ function highlightTask(taskItem) {
 }
 
 function completeTask() {
+    // Update counter
+    incrementCounter();
+
+
     const resultDiv = document.getElementById("result");
     const selectedTaskText = resultDiv.textContent.replace("Your task: ", ""); // Get the selected task
 
@@ -167,6 +177,15 @@ function toggleCompletedTasks() {
     }
 }
 
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
 
 // function toggleSound(){

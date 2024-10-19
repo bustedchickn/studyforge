@@ -15,7 +15,7 @@ function incrementCounter(){
         .then(response => response.json())
         .then(data => {
 
-            const maxLength = data.lenght
+            const maxLength = data.length
             //If the max item has been reached then do nothing
             if(item > maxLength){
                 return ;
