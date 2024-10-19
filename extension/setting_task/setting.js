@@ -146,6 +146,17 @@ settingButton.addEventListener('click', () => {
         assignmentSelector.classList.add('j_hide');
         website.classList.add('j_hide');
     }
+    // Get all selected checkboxes
+const checkboxes = document.querySelectorAll('input:checked');
+        
+// Extract the values of the selected checkboxes
+const selectedValues = Array.from(checkboxes).map(checkbox => checkbox.value);
+
+// Store the selected values in chrome.storage.local
+chrome.storage.local.set({ selectedOptions: selectedValues }, function() {
+    console.log('Selected options saved to storage:', selectedValues);
+    document.getElementById('result').textContent = 'Selected options saved!';
+});
 });
 
 
@@ -163,7 +174,26 @@ chrome.storage.local.set({ selectedOptions: selectedValues }, function() {
     document.getElementById('result').textContent = 'Selected options saved!';
 });
 
+window.onload = function () {
+chrome.storage.local.get(['selectedOptions'], function(result) {
+    const savedValues = result.selectedOptions || [];
 
+    // Uncheck all checkboxes first
+    document.querySelectorAll('input[name="option"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    // Check the saved checkboxes
+    savedValues.forEach(value => {
+        const checkbox = document.querySelector(`input[name="option"][value="${value}"]`);
+        if (checkbox) {
+            checkbox.checked = true;
+        }
+    });
+
+    console.log('Loaded options from storage:', savedValues);
+    document.getElementById('result').textContent = 'Selected options loaded!';
+});}
 
 
 
