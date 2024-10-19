@@ -3,6 +3,52 @@ let counter = 0;
 let item = 0;
 
 const button = document.querySelector('.outline');
+style.textContent = `
+    .outline{
+        border: 1px solid black;
+        background: linear-gradient(45deg, rgb(180, 82, 52), rgb(0, 0, 0));
+        border-radius: 10px;
+        padding: 10px;
+        width: 300px;
+        height: 100px;
+        grid-template-columns: 1fr 2fr;
+        display: grid;
+
+
+        position: absolute;
+        top: 15%;
+        right: -220px;
+        transform: translateY(-50%); /* Center the button */
+        animation: slide-in-out 4s ease-in-out infinite; /* Start the animation */
+    }
+
+    @keyframes slide-in-out {
+        0% {
+            right: -420px; /* Off-screen */
+        }
+        20% {
+            right: 20px; /* Fully visible on-screen */
+        }
+        80% {
+            right: 20px; /* Still visible */
+        }
+        100% {
+            right: -420px; /* Off-screen again */
+        }
+    }
+
+    .title_holder{
+        text-align: center;
+        color: white;
+    }
+
+    .img_token{
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+    }
+`;
+document.head.appendChild(style);
 
 //This function will be called everytie the finished assinment button is hit
 function incrementCounter(){
@@ -39,7 +85,9 @@ function incrementCounter(){
  * THis function is meant to take the data from the json and display it
  *************************************************************************/
 function callItem(item, data){
-    const listEL = document.getElementById('outline');
+    // const listEL = document.getElementById('outline');
+    const listEL = document.createElement('button');
+    listEL.classList.add('outline');
     //Check if the token can be displayed only displayed assigned tokens
     if(data[item].assigned == true){ 
         // Create the container div for the outline
