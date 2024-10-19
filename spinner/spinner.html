@@ -18,10 +18,27 @@
 
     <!-- Spin button -->
     <button onclick="pickTask()">Pick a Task</button>
+    <button onclick="completeTask()">Complete Task</button>
 
     <!-- Result display -->
     <div id="result"></div>
-    <audio id="taskSound" src="click-sound.mp3" preload="auto"></audio>
+
+    <!-- Completed Tasks -->
+    <div id="completedTasksSection" style="display:none;">
+        <h2>Completed Tasks</h2>
+        <ul id="completedTasksList"></ul>
+    </div>
+
+    <button onclick="toggleCompletedTasks()">See Completed Tasks</button>
+
+    <!-- Audio -->
+    <audio id="taskSound1" src="click1.mp3" preload="auto"></audio>
+    <audio id="taskSound2" src="click2.mp3" preload="auto"></audio>
+    <audio id="taskSound3" src="click3.mp3" preload="auto"></audio>
+    <audio id="taskSound4" src="click4.mp3" preload="auto"></audio>
+    <audio id="taskSound5" src="click5.mp3" preload="auto"></audio>
+    <audio id="taskSound6" src="click6.mp3" preload="auto"></audio>
+    <audio id="taskSound7" src="click7.mp3" preload="auto"></audio>
 
     <script src="script.js"></script>
 </body>
