@@ -2,4 +2,11 @@
 const site = window.location.hostname
 
 // testing alert
-alert("Focusing is a virtue. Remember that here on "+site+".")
+
+
+if (site === "www.youtube.com"||site === "youtube.com"){
+    alert("Focusing is a virtue. Remember that here on "+site+".")
+}
+
+
+
