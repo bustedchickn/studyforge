@@ -19,6 +19,7 @@ function addTask() {
 
         // Clear the input
         taskInput.value = "";
+        taskInput.focus();
     }
 }
 
