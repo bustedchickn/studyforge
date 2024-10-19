@@ -9,8 +9,18 @@ taskInput.addEventListener('keydown', function(event) {
         addTask();  // Call the same function as the button click
     }});
 
+var bodyElement = document.querySelector('body');
+const randombg = getRandomColor();
+const randbuttonbg = getRandomColor();
+bodyElement.style.background = randombg;
+
+
+setButtonContrastColors(randbuttonbg);
+setHeaderContrastColors(randombg);
+
 
 function addTask() {
+    if (isPicking) return;
     const taskInput = document.getElementById("taskInput");
     const taskList = document.getElementById("taskList");
 
@@ -34,8 +44,8 @@ function addTask() {
 }
 
 function pickTask() {
-    if (isPicking || tasks.length === 0) {
-        alert("Please add some tasks first, or wait until the current task is picked!");
+    if (tasks.length === 0) {
+        alert("Please add some tasks first!");
         return;
     }
 
@@ -65,11 +75,13 @@ function pickTask() {
         // Remove highlight from all items
         taskListItems.forEach(item => item.classList.remove("highlight"));
         taskListItems.forEach(item => item.style.backgroundColor = "#FFFFFF");
+        taskListItems.forEach(item => item.style.color = "black");
         
         
         // Highlight the current item with a random color
         randomColor = getRandomColor();
         taskListItems[currentIndex].style.backgroundColor = randomColor;
+        taskListItems[currentIndex].style.color = getListContrastColor(randomColor);
         taskListItems[currentIndex].classList.add("highlight");
 
         // Play sound each time a new item is highlighted
@@ -111,14 +123,17 @@ function pickTask() {
 
 function highlightTask(taskItem) {
     if (isPicking) isPicking = false;
-
+    
     // Remove highlight from all items
     const taskListItems = document.querySelectorAll("#taskList li");
     taskListItems.forEach(item => item.classList.remove("highlight"));
+    taskListItems.forEach(item => item.style.backgroundColor = "#FFFFFF");
+    taskListItems.forEach(item => item.style.color = "black");
 
     // Highlight the current item with a random color
     randomColor = getRandomColor();
     taskItem.style.backgroundColor = randomColor;
+    taskItem.style.color = getListContrastColor(randomColor);
     taskItem.classList.add("highlight");
 
     // Display the selected task in the result section
@@ -283,10 +298,70 @@ window.addEventListener('unload', function () {
     saveList1ToLocalStorage();
 });
 
-// function toggleSound(){
-//     if (soundToggle >= 3){
-//         soundToggle = 1;
-//     } else{
-//         soundToggle++;
-//     }
-// }
+function getContrastColor() {
+    // Get the body's background color
+    const bodyElement = document.body;
+    const bgColor = window.getComputedStyle(bodyElement).backgroundColor;
+
+    // Convert RGB color to brightness
+    rgbValues = bgColor.match(/\d+/g);
+    r = parseInt(rgbValues[0]);
+    g = parseInt(rgbValues[1]);
+    b = parseInt(rgbValues[2]);
+
+    // Calculate perceived brightness
+    brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+    // Determine whether to return white or black text
+    return (brightness > 128) ? 'black' : 'white';
+}
+
+function getListContrastColor(bagColor) {
+    const rgb = hexToRgb(bagColor);
+    const brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+    return (brightness > 128) ? 'black' : 'white';
+}
+
+function setHeaderContrastColors(randombg) {
+    const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6'); // Select all header elements
+    const contrastColor = getContrastColor(randombg); // Get the contrast color
+
+    headers.forEach(header => {
+        header.style.color = contrastColor; // Set the color for each header
+    });
+    document.getElementById("result").style.color = contrastColor;
+    document.getElementById("c_title").style.color = "#FFFFFF";
+    
+}
+
+function setButtonContrastColors(randbg) {
+    const buttons = document.querySelectorAll('button'); // Select all button elements
+    const contrastColor = getListContrastColor(randbg); // Get the contrast color
+
+    buttons.forEach(button => {
+        button.style.backgroundColor = randbuttonbg;
+        button.style.color = contrastColor; // Set the color for each header
+    });
+    
+}
+
+
+
+function hexToRgb(hex) {
+    // Remove the '#' if present
+    hex = hex.replace('#', '');
+
+    // Convert 3-digit hex to 6-digit hex
+    if (hex.length === 3) {
+        hex = hex.split('').map(function (h) {
+            return h + h; // Duplicate each character
+        }).join('');
+    }
+
+    // Parse the r, g, b values
+    r = parseInt(hex.substring(0, 2), 16);
+    g = parseInt(hex.substring(2, 4), 16);
+    b = parseInt(hex.substring(4, 6), 16);
+
+    return { r, g, b };
+}
