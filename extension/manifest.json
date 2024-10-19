@@ -6,8 +6,8 @@
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
-          "32": "website/logos/hero-32.png",
-          "128": "website/logos/hero-128.png"
+          "32": "logos/hero-32.png",
+          "128": "logos/hero-128.png"
         }
     },
 
