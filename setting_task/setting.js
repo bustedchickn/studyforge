@@ -45,6 +45,10 @@ const youtubeMusic = document.createElement('li');
 youtubeMusic.innerHTML = '<input type="checkbox" id="YoutubeMusic"> <label for="YoutubeMusic">YouTube Music</label>';
 musicList.appendChild(youtubeMusic);
 
+const brownNoise = document.createElement('li');
+youtubeMusic.innerHTML = '<input type="checkbox" id="noise"> <label for="brownNoise">Brown Noise</label>';
+musicList.appendChild(brownNoise);
+
 // Append the music list to the music holder, then to the general setting list
 musicHolder.appendChild(musicList);
 setting.appendChild(musicHolder);
