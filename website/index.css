@@ -11,6 +11,9 @@ body{
 /* NAV Bar */
 header{
     background-color: #420011;
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 nav{
     padding: 10px;
@@ -92,4 +95,19 @@ p{
     width: 400px;
     padding: 20px;
 }
+#download img{
+    width: 30%;
+}
 
+#feature1 img{
+    width: 35%;
+}
+#feature2 img{
+    width: 35%;
+}
+#feature3 img{
+    border-radius: 0px;
+}
+h2{
+    text-align: center;
+}
