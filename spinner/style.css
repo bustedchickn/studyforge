@@ -40,6 +40,9 @@ button {
 #completedTasksList li {
     background-color: #dff0d8; /* Light green background for completed tasks */
 }
+#completedTasksSection{
+    display: none;
+}
 
 #result {
     margin-top: 20px;

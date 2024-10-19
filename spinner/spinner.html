@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Picker</title>
+    <link rel="stylesheet" href="../Award_Tokens/gammerNFT.css">
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="c_stylesheet" href="../Award_Tokens/gammerNFT.css"> -->
+
+    <audio preload="auto" src="../sounds/reward.wav" id="awardSound"></audio>
 </head>
 <body>
+    <div class="c_Outline" id="c_Outline">
+        
+        <img src="" alt="" id="c_img" class="c_img_token">
+        <h1 id="c_title" class="c_title_holder"></h1>
+    </div>
     <h1>Task Picker</h1>
 
     <!-- Task input -->
@@ -19,18 +28,18 @@
 
     <!-- Spin button -->
     <button onclick="pickTask()">Pick a Task</button>
-    <button onclick="completeTask()">Complete Task</button>
+    <button id="c_finish_assingment" onclick="completeTask()">Complete Task</button>
 
     <!-- Result display -->
     <div id="result"></div>
 
     <!-- Completed Tasks -->
-    <div id="completedTasksSection" style="display:none;">
+    <div id="completedTasksSection">
         <h2>Completed Tasks</h2>
         <ul id="completedTasksList"></ul>
     </div>
 
-    <button onclick="toggleCompletedTasks()">See Completed Tasks</button>
+    <button onclick="toggleCompletedTasks() ">See Completed Tasks</button>
 
     <!-- Audio -->
     <audio id="taskSound1" src="click1.mp3" preload="auto"></audio>
