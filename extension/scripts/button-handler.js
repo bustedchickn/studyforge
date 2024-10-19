@@ -25,6 +25,7 @@ function reset(event) {
     document.getElementById("page-notes").hidden = true;
     document.getElementById("home-grid").style.display = "flex";
     document.getElementById("return").hidden = true;
+    document.body.style.height = '475px';
 }
 
 function openSettings() {
@@ -35,6 +36,7 @@ function openReminders() {
     document.getElementById("return").hidden = false;
     document.getElementById("page-notes").hidden = false;
     document.getElementById("home-grid").style.display = "none";
+    document.body.style.height = '300px';
 }
 
 function openPomodoro() {
