@@ -6,7 +6,7 @@ const site = window.location.hostname
 
 
 
-let blockedlist = ["facebook","instagram","tiktok","discord"]
+let blockedlist = ["facebook","instagram","tiktok","discord","x"]
 let encouragementList = ["I believe that you can focus!", "Focusing is a virtue.","FOCUS POCUS!","Are you getting distracted?","Lets focus again!"]
 
 blockedlist.forEach(element => {

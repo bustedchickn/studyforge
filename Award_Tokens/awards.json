@@ -1,37 +1,37 @@
 [
     {
         "name": "Getting Started",
-        "description": "Started your homework",
+        "description": "Started your homework.",
         "image": "../Award_Tokens/images/copper.jpeg",
         "assigned": false
     },  
     {
         "name": "Keep it Going",
-        "description": "you kept doing homework",
+        "description": "You kept doing homework.",
         "image": "../Award_Tokens/images/bronzToken.jpeg",
         "assigned": false
     },  
     {
         "name": "Pumped UP",
-        "description": "you are staying strong",
+        "description": "You are staying strong!",
         "image": "../Award_Tokens/images/study.jpeg",
         "assigned": false
     },
     {
-        "name": "academically Inclined",
-        "description": "you have finished more then a few assinments",
+        "name": "Academically Inclined",
+        "description": "You have finished more than a few assignments.",
         "image": "../Award_Tokens/images/BronzTrophy.jpeg",
         "assigned": false
     },
     {
         "name": "Teachers Pet",
-        "description": "Completed a fair aount of assinments",
+        "description": "Completed a fair amount of assignments.",
         "image": "../Award_Tokens/images/silverTrophy.jpeg",
         "assigned": false
     },
     {
         "name": "Dr. Einstein",
-        "description": "wholy cow you did a lot!",
+        "description": "Holy cow you did a lot!",
         "image": "../Award_Tokens/images/BigTrophy.jpeg",
         "assigned": false
     }

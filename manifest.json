@@ -17,5 +17,13 @@
                 "app.js"
             ]
         }
+    ],
+    "permissions": [
+        "tabs",
+        "cookies",
+        "storage",
+        "notifications",
+        "alarms",
+        "activeTab"
     ]
 }

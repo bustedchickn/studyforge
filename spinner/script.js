@@ -3,6 +3,13 @@ let completedTasks = []; // Array to hold completed tasks
 let isPicking = false;
 let soundToggle = 1;
 
+let taskInput = document.getElementById("taskInput");
+taskInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {  // Check if the "Enter" key is pressed
+        addTask();  // Call the same function as the button click
+    }});
+
+
 function addTask() {
     const taskInput = document.getElementById("taskInput");
     const taskList = document.getElementById("taskList");
@@ -17,8 +24,12 @@ function addTask() {
         li.onclick = () => highlightTask(li); // Add click event to highlight task
         taskList.appendChild(li);
 
+        // // Save list to local storage as json
+        // saveListToLocalStorage(taskList);
+
         // Clear the input
         taskInput.value = "";
+        taskInput.focus();
     }
 }
 
@@ -82,7 +93,7 @@ function pickTask() {
         delay += 10;
 
         // Continue the cycle until we've done enough total cycles
-        if (cycleCount < totalCycles) {
+        if (cycleCount < totalCycles&&isPicking) {
             setTimeout(highlightNextItem, delay);
             cycleCount++; // Increment the cycle count
         } else {
@@ -94,11 +105,13 @@ function pickTask() {
             isPicking = false;  // Allow further selections
         }
     }
-
+    
     highlightNextItem();  // Start the task highlighting cycle
 }
 
 function highlightTask(taskItem) {
+    if (isPicking) isPicking = false;
+
     // Remove highlight from all items
     const taskListItems = document.querySelectorAll("#taskList li");
     taskListItems.forEach(item => item.classList.remove("highlight"));
@@ -114,8 +127,7 @@ function highlightTask(taskItem) {
 }
 
 function completeTask() {
-    // Update counter
-    incrementCounter();
+    if (isPicking) isPicking = false;
 
 
     const resultDiv = document.getElementById("result");
@@ -125,7 +137,9 @@ function completeTask() {
         alert("Please select a task first!");
         return;
     }
-
+    // Update counter
+    incrementCounter();
+    
     // Find the index of the selected task in the task list
     const taskIndex = tasks.indexOf(selectedTaskText);
     if (taskIndex > -1) {
@@ -156,6 +170,9 @@ function updateTaskList() {
         li.onclick = () => highlightTask(li); // Re-add click event for new list items
         taskList.appendChild(li);
     });
+
+    // Save list to local storage as json
+    saveList1ToChromeStorage();
 }
 
 function updateCompletedTasksList() {
@@ -186,6 +203,44 @@ function getRandomColor() {
     }
     return color;
 }
+
+
+// Save List 1 to chrome.storage.local
+function saveList1ToChromeStorage() {
+    var listItems = document.querySelectorAll('#taskList li');
+    var itemsArray = [];
+
+    // Loop through list items and save their text content
+    listItems.forEach(function(li) {
+        itemsArray.push(li.textContent);
+    });
+
+    // Save the array to chrome.storage.local
+    chrome.storage.local.set({ 'myList1': itemsArray }, function() {
+        console.log('List 1 saved to chrome.storage');
+    });
+}
+
+// Load List 1 from chrome.storage.local when the page is loaded
+function loadList1FromChromeStorage() {
+    chrome.storage.local.get('myList1', function(result) {
+        var storedList = result.myList1;
+
+        if (storedList) {
+            // Loop through the stored array and recreate the list items
+            storedList.forEach(function(item) {
+                var li = document.createElement('li');
+                li.textContent = item;
+                document.getElementById('list1').appendChild(li);
+            });
+        }
+    });
+}
+
+
+// Load List 1 from chrome.storage when the page is loaded
+window.onload = loadList1FromChromeStorage;
+
 
 
 // function toggleSound(){

@@ -16,10 +16,12 @@ function incrementCounter() {
     count += 1;
     //for every 5 asinments done then display a token.
     if(count % 5 == 0){
-        document.getElementById("awardSound").play();
-        const pain = document.getElementById('c_Outline');
-
-        pain.style.animation ="slide-in-out 4s ease-in-out forwards"
+        sound = document.getElementById("awardSound");
+        sound.currentTime = 0;
+        sound.play();
+        let pain = document.getElementById('c_Outline');
+        pain.style.display = "flex";
+        pain.style.animation ="slide-in-out 4s ease-in-out forwards";
         fetch('../Award_Tokens/awards.json')
         .then(response => response.json())
         .then(data => {
@@ -30,13 +32,14 @@ function incrementCounter() {
                 console.log(data);
                 //display the item
                 callItem(item, data);
-                // wait 6 seconds then remove the item
-                // setTimeout(() => {
-                //     removeItem(item);
-                // }, 6000);
+                
             }
         )
         item++
+        // wait 5 seconds then remove the item
+        setTimeout(function() {
+            pain.style.display = "none";
+        }, 5000);
     }
 }
 /*************************************************************************
@@ -49,13 +52,13 @@ function callItem(item, data){
     if(data[item].assigned == true){ 
 
         // Create the div for the image and add the image inside
-        const imgHolderDiv = document.getElementById('c_img');
+        let imgHolderDiv = document.getElementById('c_img');
         imgHolderDiv.src = data[item].image; // Set image source from JSON
         imgHolderDiv.alt = data[item].name; // Set alt text as the award name
 
 
         // Create the div for the title and add the title inside
-        const titleHolderDiv = document.getElementById('c_title');
+        let titleHolderDiv = document.getElementById('c_title');
         titleHolderDiv.innerText = data[item].name; // Set the title from JSON
     }
 }

@@ -4,6 +4,12 @@ body {
     margin-top: 50px;
 }
 
+#c_Outline {
+    display: none;
+    position: absolute;
+    justify-content: space-evenly;
+}
+
 input {
     padding: 10px;
     font-size: 16px;
