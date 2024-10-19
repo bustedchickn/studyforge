@@ -13,11 +13,18 @@ div {
     gap: 20px;
 }
 
-a {
+div > * {
     width: 100px;
     margin: 0 auto;
     flex: 1 1 calc(45% - 20px);
+    background-color: unset;
+    border: none;
 }
+
+div > button:hover {
+    cursor: pointer;
+}
+
 
 
 img {

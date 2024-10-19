@@ -19,11 +19,11 @@
         }
     ],
     "permissions": [
-  "tabs",
-  "cookies",
-  "storage",
-  "notifications",
-  "alarms",
-  "activeTab"
-]
+        "tabs",
+        "cookies",
+        "storage",
+        "notifications",
+        "alarms",
+        "activeTab"
+    ]
 }
