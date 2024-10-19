@@ -43,8 +43,20 @@ button {
     color: white;
 }
 
+#completedTasksList {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 300px;
+    text-align: left;
+}
+
 #completedTasksList li {
     background-color: #dff0d8; /* Light green background for completed tasks */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 #completedTasksSection{
     display: none;

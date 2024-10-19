@@ -187,10 +187,13 @@ function updateCompletedTasksList() {
 
 function toggleCompletedTasks() {
     const completedTasksSection = document.getElementById("completedTasksSection");
+    butt = document.getElementById("completed-toggle");
     if (completedTasksSection.style.display === "none") {
         completedTasksSection.style.display = "block";
+        butt.innerText = "Hide Completed Tasks";
     } else {
         completedTasksSection.style.display = "none";
+        butt.innerText = "Show Completed Tasks";
     }
 }
 
