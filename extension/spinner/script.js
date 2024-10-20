@@ -153,7 +153,7 @@ function completeTask() {
         return;
     }
     // Update counter
-    incrementCounter();
+    if (selectedTaskText != "Your task: ") incrementCounter();
     
     // Find the index of the selected task in the task list
     const taskIndex = tasks.indexOf(selectedTaskText);
