@@ -1,66 +1,36 @@
 // get the site you are on
 const site = window.location.hostname
 
-// testing alert
 
-// window.onload = function () {
-//     chrome.storage.local.get(['selectedOptions'], function(result) {
-//     const savedValues = result.selectedOptions || [];
 
-//     // // Uncheck all checkboxes first
-//     // document.querySelectorAll('input[name="option"]').forEach(checkbox => {
-//     //     checkbox.checked = false;
-//     // });
 
-//     // // Check the saved checkboxes
-//     // savedValues.forEach(value => {
-//     //     const checkbox = document.querySelector(`input[name="option"][value="${value}"]`);
-//     //     if (checkbox) {
-//     //         checkbox.checked = true;
-//     //     }
-//     // });
 
-//     console.log('Loaded options from storage:', savedValues);
-//     document.getElementById('result').textContent = 'Selected options loaded!';
-// });}
+
+
+
 
 
 let blockedlist = ["facebook","instagram","tiktok","discord","x"]
 let encouragementList = ["I believe that you can focus!", "Focusing is a virtue.","FOCUS POCUS!","Are you getting distracted?","Lets focus again!"]
 
+// check for blockedlist
 blockedlist.forEach(element => {
     if (site === "www."+element+".com"||site === element+".com"||site===element){
         // #todo I would love for this to be added to the timer
-    alert(Math.floor(Math.random() * (encouragementList.length - 1) + 1))
+    alert(encouragementList[Math.floor(Math.random() * (encouragementList.length - 1) + 1)]);
 }
 });
 
-// if(savedValues == []){
-//     let muted = false;
-//     let brokenHome = false;
-//     let blurred = false;
-//     let descriptionHidden = false;
-//     let commentsHidden = false;
-//     let suggestedHidden = false;
-//     let shortsHidden = false;
-// }else{
-//     let muted = true;
-//     let brokenHome = true;
-//     let blurred = true;
-//     let descriptionHidden = true;
-//     let commentsHidden = true;
-//     let suggestedHidden = true;
-//     let shortsHidden = true;
-// }
+
 let muted = true;
-    let brokenHome = true;
-    let blurred = true;
-    let descriptionHidden = true;
-    let commentsHidden = true;
-    let suggestedHidden = true;
-    let shortsHidden = true;
+let brokenHome = true;
+let blurred = true;
+let descriptionHidden = true;
+let commentsHidden = true;
+let suggestedHidden = true;
+let shortsHidden = true;
 
-
+// Blocking videos
 window.onload = function () {
     // Hide the right-side suggested videos (next to the video you're watching)
     var suggestedSidebar = document.querySelector('.style-scope ytd-watch-flexy'); // Common ID for the sidebar

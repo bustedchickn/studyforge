@@ -179,13 +179,13 @@ chrome.storage.local.get(['selectedOptions'], function(result) {
     const savedValues = result.selectedOptions || [];
 
     // Uncheck all checkboxes first
-    document.querySelectorAll('input[name="option"]').forEach(checkbox => {
+    document.querySelectorAll('input').forEach(checkbox => {
         checkbox.checked = false;
     });
 
     // Check the saved checkboxes
     savedValues.forEach(value => {
-        const checkbox = document.querySelector(`input[name="option"][value="${value}"]`);
+        const checkbox = document.querySelector(`input[value="${value}"]`);
         if (checkbox) {
             checkbox.checked = true;
         }
