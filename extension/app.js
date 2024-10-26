@@ -2,7 +2,44 @@
 const site = window.location.hostname
 
 
+let ytblock = false;
+let muted = false;
+let brokenHome = false;
+let blurred = false;
+let descriptionHidden = false;
+let commentsHidden = false;
+let suggestedHidden = false;
+let shortsHidden = false;
 
+// Function to load settings
+function loadStoredCheckboxData() {
+    chrome.storage.local.get(["selectedOptions"], function (result) {
+        const savedValues = result.selectedOptions || [];
+        console.log("Retrieved selected options:", savedValues);
+
+        // Here you can use `savedValues` for any purpose you need in this file
+        // For example, you might log each saved checkbox ID or perform an action based on each ID
+        savedValues.forEach(id => {
+            console.log("Checkbox ID loaded:", id);
+            // Perform actions based on the loaded checkbox ID
+            // For example:
+            if (id === 'Youtube') { 
+                muted = true;
+                brokenHome = true;
+                blurred = true;
+                descriptionHidden = true;
+                commentsHidden = true;
+                suggestedHidden = true;
+                shortsHidden = true;}
+            // else if (id === 'Spotify') { /* Enable Spotify setting */ }
+        });
+
+        // Optional: Display the loaded data in the DOM
+        const resultContainer = document.getElementById("result") || document.body.appendChild(document.createElement("div"));
+        resultContainer.id = "result";
+        resultContainer.textContent = `Retrieved selected options: ${savedValues.join(", ")}`;
+    });
+}
 
 
 
@@ -22,16 +59,11 @@ blockedlist.forEach(element => {
 });
 
 
-let muted = true;
-let brokenHome = true;
-let blurred = true;
-let descriptionHidden = true;
-let commentsHidden = true;
-let suggestedHidden = true;
-let shortsHidden = true;
+
 
 // Blocking videos
 window.onload = function () {
+    loadStoredCheckboxData();
     // Hide the right-side suggested videos (next to the video you're watching)
     var suggestedSidebar = document.querySelector('.style-scope ytd-watch-flexy'); // Common ID for the sidebar
     if (suggestedSidebar) {
@@ -54,7 +86,7 @@ window.onload = function () {
     var vid = document.querySelector('video');
     if (vid) {
         // vid.style.display = 'none';
-        vid.style.filter = "blur(20px)";
+        if (blurred) vid.style.filter = "blur(20px)";
         if (muted) {
             vid.muted = true;
         }
@@ -116,3 +148,5 @@ window.onload = function () {
     // Observe changes in the body and any new child elements
     observer.observe(document.body, { childList: true, subtree: true });
 };
+
+

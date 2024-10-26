@@ -13,10 +13,68 @@
     <button id="return" hidden><img src="icons/backarrow.svg" alt="back"></button>
     <div id="home-grid">
         <button id="settings"><a href="/extension/popup.html"><img src="/extension/icons/settings.svg" alt="Settings"></a></button>
+        <!-- Settings container -->
+    <ul class="generalSetting">
+        <!-- Music section -->
+        <li id="music" class="j_hide">
+            <input type="checkbox" id="Music"> 
+            <label for="Music">Music</label>
+        </li>
+
+        <!-- Music holder and services list -->
+        <div id="musicHolder" class="musicHolder j_hide">
+            <ul>
+                <li><input type="checkbox" id="Spotify"> <label for="Spotify">Spotify</label></li>
+                <li><input type="checkbox" id="Pandora"> <label for="Pandora">Pandora</label></li>
+                <li><input type="checkbox" id="YoutubeMusic"> <label for="YoutubeMusic">YouTube Music</label></li>
+                <li><input type="checkbox" id="noise"> <label for="brownNoise">Brown Noise</label></li>
+            </ul>
+        </div>
+
+        <!-- Focus Mode section -->
+        <li id="focusMode" class="focusMode j_hide">
+            <input type="checkbox" id="focus"> 
+            <label for="focus">Focus Mode</label>
+        </li>
+
+        <!-- Focus URL holder -->
+        <div id="FocusUrlHolder" class="FocusUrlHolder j_hide">
+            <ul>
+                <li><input type="checkbox" id="Facebook"> <label for="Facebook">Facebook</label></li>
+                <li><input type="checkbox" id="Youtube"> <label for="Youtube">YouTube</label></li>
+                <li><input type="checkbox" id="Discord"> <label for="Discord">Discord</label></li>
+                <li><input type="checkbox" id="X"> <label for="X">X</label></li>
+                <li><input type="checkbox" id="Other"> <label for="Other">Other</label></li>
+                <input type="text" id="OtherUrl" class="OtherUrl">
+            </ul>
+        </div>
+
+        <!-- Pomodoro section -->
+        <!-- <li id="pomodoro" class="j_hide">
+            <input type="checkbox" id="pomodoro"> 
+            <label for="pomodoro">Pomodoro</label>
+        </li>
+
+        Assignment Selector section
+        <li id="assignmentSelector" class="j_hide">
+            <input type="checkbox" id="assignmentSelector"> 
+            <label for="assignmentSelector">Assignment Selector</label>
+        </li>
+
+        Website section
+        <li id="website" class="j_hide">
+            <input type="checkbox" id="HomePage"> 
+            <label for="HomePage">Website</label>
+        </li> -->
+    </ul>
+
+    
+
+
         
         
     </div>
-
+<!-- Result display -->
     <p id="result"></p>
 
 </body>
