@@ -11,6 +11,9 @@ let commentsHidden = false;
 let suggestedHidden = false;
 let shortsHidden = false;
 
+
+let blockedlist = ["instagram","tiktok","discord","x"]
+let encouragementList = ["I believe that you can focus!", "Focusing is a virtue.", "FOCUS POCUS!", "Are you getting distracted?", "Lets focus again!"]
 // Function to load settings
 function loadStoredCheckboxData() {
     chrome.storage.local.get(["selectedOptions"], function (result) {
@@ -23,7 +26,9 @@ function loadStoredCheckboxData() {
             console.log("Checkbox ID loaded:", id);
             // Perform actions based on the loaded checkbox ID
             // For example:
-            if (id === 'Youtube') { 
+            
+            if (id === 'Facebook') { blockedlist.append("facebook"); }
+            else if (id === 'Youtube') { 
                 muted = true;
                 brokenHome = true;
                 blurred = true;
@@ -31,7 +36,6 @@ function loadStoredCheckboxData() {
                 commentsHidden = true;
                 suggestedHidden = true;
                 shortsHidden = true;}
-            // else if (id === 'Spotify') { /* Enable Spotify setting */ }
         });
 
         // Optional: Display the loaded data in the DOM
@@ -39,24 +43,25 @@ function loadStoredCheckboxData() {
         resultContainer.id = "result";
         resultContainer.textContent = `Retrieved selected options: ${savedValues.join(", ")}`;
     });
-}
-
-
-
-
-
-
-
-let blockedlist = ["facebook","instagram","tiktok","discord","x"]
-let encouragementList = ["I believe that you can focus!", "Focusing is a virtue.","FOCUS POCUS!","Are you getting distracted?","Lets focus again!"]
-
-// check for blockedlist
-blockedlist.forEach(element => {
+    // check for blockedlist
+    blockedlist.forEach(element => {
     if (site === "www."+element+".com"||site === element+".com"||site===element){
         // #todo I would love for this to be added to the timer
     alert(encouragementList[Math.floor(Math.random() * (encouragementList.length - 1) + 1)]);
 }
 });
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
