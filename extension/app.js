@@ -12,7 +12,7 @@ let suggestedHidden = false;
 let shortsHidden = false;
 
 
-let blockedlist = ["instagram","tiktok","discord","x"]
+let blockedlist = ["instagram","tiktok","discord","x","facebook"]
 let encouragementList = ["I believe that you can focus!", "Focusing is a virtue.", "FOCUS POCUS!", "Are you getting distracted?", "Lets focus again!"]
 // Function to load settings
 function loadStoredCheckboxData() {
@@ -27,11 +27,19 @@ function loadStoredCheckboxData() {
             // Perform actions based on the loaded checkbox ID
             // For example:
             
-            if (id === 'Facebook') { blockedlist.append("facebook"); }
-            else if (id === 'Youtube') { 
+            
+            if (id === 'Youtube') { 
                 muted = true;
                 brokenHome = true;
                 blurred = true;
+                // descriptionHidden = true;
+                // commentsHidden = true;
+                // suggestedHidden = true;
+                // shortsHidden = true;
+                }
+                
+            else if (id === 'Facebook') { 
+                // blockedlist.append("facebook"); 
                 descriptionHidden = true;
                 commentsHidden = true;
                 suggestedHidden = true;
@@ -43,13 +51,7 @@ function loadStoredCheckboxData() {
         resultContainer.id = "result";
         resultContainer.textContent = `Retrieved selected options: ${savedValues.join(", ")}`;
     });
-    // check for blockedlist
-    blockedlist.forEach(element => {
-    if (site === "www."+element+".com"||site === element+".com"||site===element){
-        // #todo I would love for this to be added to the timer
-    alert(encouragementList[Math.floor(Math.random() * (encouragementList.length - 1) + 1)]);
-}
-});
+    
 }
 
 
@@ -69,6 +71,15 @@ function loadStoredCheckboxData() {
 // Blocking videos
 window.onload = function () {
     loadStoredCheckboxData();
+
+    // check for blockedlist
+    blockedlist.forEach(element => {
+        if (site === "www."+element+".com"||site === element+".com"||site===element){
+            // #todo I would love for this to be added to the timer
+        alert(encouragementList[Math.floor(Math.random() * (encouragementList.length - 1) + 1)]);
+    }
+    });
+
     // Hide the right-side suggested videos (next to the video you're watching)
     var suggestedSidebar = document.querySelector('.style-scope ytd-watch-flexy'); // Common ID for the sidebar
     if (suggestedSidebar) {

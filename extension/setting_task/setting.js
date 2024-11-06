@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
         chrome.storage.local.set({ selectedOptions: selectedValues }, function () {
             console.log("Selected options saved to storage:", selectedValues);
             document.getElementById("result").textContent = "Selected options saved!";
+
+            setTimeout(() => {
+                document.getElementById("result").textContent = "Reload to see your changes!";
+            }, 3000);
+
+
         });
     }
 
