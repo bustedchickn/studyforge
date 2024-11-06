@@ -110,10 +110,12 @@ function pickTask() {
             cycleCount++; // Increment the cycle count
         } else {
             // Stop cycling and pick the current task
-            const selectedTask = taskListItems[(currentIndex - 1 + tasks.length) % tasks.length].textContent;
-
+            const selectedTask = taskListItems[(currentIndex - 1 + tasks.length) % tasks.length];
+            if(selectedTask){
+                resultTask = selectedTask.textContent;
+            }
             const resultDiv = document.getElementById("result");
-            resultDiv.textContent = `Your task: ${selectedTask}`;
+            resultDiv.textContent = `Your task: ${resultTask}`;
             isPicking = false;  // Allow further selections
         }
     }
@@ -145,10 +147,10 @@ function completeTask() {
     if (isPicking) isPicking = false;
 
 
-    const resultDiv = document.getElementById("result");
+    let resultDiv = document.getElementById("result");
     const selectedTaskText = resultDiv.textContent.replace("Your task: ", ""); // Get the selected task
 
-    if (!selectedTaskText || selectedTaskText === "Your task: ") {
+    if (!selectedTaskText || selectedTaskText === "Your task: " || selectedTaskText === "Good Job!") {
         alert("Please select a task first!");
         return;
     }
@@ -174,6 +176,7 @@ function completeTask() {
     } else {
         alert("Task not found!");
     }
+    resultDiv.textContent = ("Good Job!");
 }
 
 function updateTaskList() {
@@ -257,6 +260,7 @@ function getRandomColor() {
 
 // Save List 1 to localStorage
 function saveList1ToLocalStorage() {
+    return;
     var listItems = document.querySelectorAll('#taskList li');
     var itemsArray = [];
 
@@ -272,6 +276,7 @@ function saveList1ToLocalStorage() {
 
 // Load List 1 from localStorage when the page is loaded
 function loadList1FromLocalStorage() {
+    return;
     var storedList = localStorage.getItem('myList1'); // Get the list from localStorage
 
     if (storedList) {
@@ -279,9 +284,9 @@ function loadList1FromLocalStorage() {
 
         // Loop through the array and recreate the list items
         itemsArray.forEach(function(item) {
-            var li = document.createElement('li');
+            let li = document.createElement('li');
             li.textContent = item;
-            document.getElementById('list1').appendChild(li);
+            document.getElementById('taskList').appendChild(li);
         });
     }
 }
