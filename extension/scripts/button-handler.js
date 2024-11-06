@@ -1,5 +1,6 @@
 let isPlaying = false;
 document.getElementById('brown noise').pause();
+let sound = document.getElementById('brown noise');
 
 (function initListeners() {
     document.getElementById("settings").addEventListener('click', openSettings);
@@ -11,14 +12,21 @@ document.getElementById('brown noise').pause();
 })();
 
 function startSound() {
-    const sound = document.getElementById('brown noise');
-    if (isPlaying) {
-        sound.pause();
-    } else {
-        sound.currentTime = 0;
-        sound.play();
+    if (sound == document.getElementById('brown noise')) {
+        const soundpic = document.getElementById('meSound');
+        if (isPlaying) {
+            sound.pause();
+            soundpic.classList.remove("playing");
+        } else {
+            sound.currentTime = 0;
+            sound.play();
+            soundpic.classList.add("playing");
+        }
+        isPlaying = !isPlaying;
     }
-    isPlaying = !isPlaying;
+    else{
+        window.open("https://"+sound+".com", "_blank");
+    }
 }   
 
 function reset(event) {
@@ -30,7 +38,7 @@ function reset(event) {
 }
 
 function openSettings() {
-
+    return;
 }
 
 function openReminders() {
@@ -44,9 +52,37 @@ function openPomodoro() {
     window.open('../pomodoro/pomodoro.html', 'Pomodoro Timer', 'width=200,height=250');
 }
 
-function openMusic(){
-    //get the preference
+function loadStoredCheckboxData() {
+    chrome.storage.local.get(["selectedOptions"], function (result) {
+        const savedValues = result.selectedOptions || [];
+        console.log("Retrieved selected options:", savedValues);
 
+        // Here you can use `savedValues` for any purpose you need in this file
+        // For example, you might log each saved checkbox ID or perform an action based on each ID
+        savedValues.forEach(id => {
+            console.log("Checkbox ID loaded:", id);
+            // Perform actions based on the loaded checkbox ID
+            // For example:
+            
+            
+            if (id === 'Spotify') { 
+                sound = "open.spotify";
+            }
+            else if (id === 'Pandora') { 
+                sound = "www.pandora";
+            }
+            else if (id === 'YoutubeMusic'){
+                sound = "music.youtube";
+            }
+            else if (id === 'noise'){
+                sound = document.getElementById('brown noise');
+            }
+            
+        });
 
-    //if theres no preference, play the brown noise
+    });
+    
+}
+window.onload = function(){
+    loadStoredCheckboxData();
 }

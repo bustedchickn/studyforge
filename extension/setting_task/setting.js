@@ -45,6 +45,20 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
         checkbox.addEventListener("change", saveCheckboxes);
     });
+    const musicCheckboxes = document.querySelectorAll('#musicHolder input[type="checkbox"]');
+
+    musicCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                musicCheckboxes.forEach((otherCheckbox) => {
+                    if (otherCheckbox !== checkbox) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+                saveCheckboxes();
+            }
+        });
+    });
 
     // Load checkboxes from storage when the page loads
     loadCheckboxes();

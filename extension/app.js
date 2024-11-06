@@ -2,14 +2,14 @@
 const site = window.location.hostname
 
 
-let ytblock = false;
-let muted = false;
-let brokenHome = false;
-let blurred = false;
-let descriptionHidden = false;
-let commentsHidden = false;
-let suggestedHidden = false;
-let shortsHidden = false;
+
+let muted = false; //mutes the video +
+let brokenHome = false; //removes videos from the home menu
+let blurred = false; //blurs the video +
+let descriptionHidden = false; //hides the video description +
+let commentsHidden = false; //hides the comment section +
+let suggestedHidden = false; //hides suggested videos +
+let shortsHidden = false; //hides yt shorts +
 
 
 let blockedlist = ["instagram","tiktok","discord","x","facebook"]
@@ -28,22 +28,27 @@ function loadStoredCheckboxData() {
             // For example:
             
             
-            if (id === 'Youtube') { 
-                muted = true;
-                brokenHome = true;
-                blurred = true;
-                // descriptionHidden = true;
-                // commentsHidden = true;
-                // suggestedHidden = true;
-                // shortsHidden = true;
-                }
-                
-            else if (id === 'Facebook') { 
-                // blockedlist.append("facebook"); 
-                descriptionHidden = true;
-                commentsHidden = true;
+            if (id === 'Shorts') { 
+                shortsHidden = true;    
+            }
+            else if (id === 'Suggested') { 
                 suggestedHidden = true;
-                shortsHidden = true;}
+            }
+            else if (id === 'Comments'){
+                commentsHidden = true;
+            }
+            else if (id === 'Description'){
+                descriptionHidden = true;
+            }
+            else if (id === 'Home'){
+                brokenHome = true;
+            }
+            else if (id === 'Blurred'){
+                blurred = true;
+            }
+            else if (id === 'Muted'){
+                muted = true;
+            }
         });
 
         // Optional: Display the loaded data in the DOM
