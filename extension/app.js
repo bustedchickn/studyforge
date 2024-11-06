@@ -51,10 +51,7 @@ function loadStoredCheckboxData() {
             }
         });
 
-        // Optional: Display the loaded data in the DOM
-        const resultContainer = document.getElementById("result") || document.body.appendChild(document.createElement("div"));
-        resultContainer.id = "result";
-        resultContainer.textContent = `Retrieved selected options: ${savedValues.join(", ")}`;
+        
     });
     
 }
