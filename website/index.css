@@ -102,10 +102,10 @@ p{
 }
 
 #feature1 img{
-    width: 35%;
+    width: 33%;
 }
 #feature2 img{
-    width: 35%;
+    width: 34%;
 }
 #feature3 img{
     border-radius: 0px;
@@ -116,4 +116,5 @@ h2{
 }
 #feature4 img{
     border-radius: 0px;
+    width: 850px;
 }
