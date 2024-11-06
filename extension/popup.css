@@ -2,6 +2,7 @@ body {
     width: 300px;
     height: 475px;
     position: relative;
+    
 }
 
 h1 {
@@ -29,8 +30,8 @@ div > button:hover {
 
 a{
     display: inline-block; /* Allows padding and full clickable area */
-    padding-block: 1px;
-    padding-inline: 6px;
+    /* padding-block: 1px;
+    padding-inline: 6px; */
     background-color: #007bff;
     color: #fff;
     text-decoration: none; /* Remove underline */
