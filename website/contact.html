@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="index.css"> 
+    <link rel="icon" href="hero.png">
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <a href="index.html" id="hero"><img src="hero.png" alt="logo"></a>
+            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">Video</a>
+            <a href="index.html#feature1">Task Creator</a>
+            <a href="index.html#feature2">Pomodoro Timer</a>
+            <a href="index.html#feature3">Focus Accommodation</a>
+            <a href="index.html#feature4">Site Reminder</a>
+            <a href="index.html">Back Home</a>
+        </nav>
+    </header>
+
+    <form action="https://formspree.io/f/xanezyqe" method="POST" class="contact-form">
+        <div class="row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="johnnyD@email.com">
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Type your message here."></textarea>
+        </div>
+      
+        <button type="submit">Send</button>
+      </form>
+
+    <footer>
+        <p>&copy; 2025</p>
+        <a href="#">About the Creators</a>
+        
+    </footer>
+</body>
+</html>
